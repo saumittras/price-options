@@ -15,7 +15,7 @@ const NavBar = () => {
   ];
 
   return (
-    <nav>
+    <nav className="text-black p-5 bg-blue-500">
       <div onClick={() => setOpen(!open)}>
         {open == true ? (
           <IoCloseSharp className="text-2xl md:hidden" />
@@ -23,7 +23,11 @@ const NavBar = () => {
           <IoIosMenu className="text-2xl md:hidden"></IoIosMenu>
         )}
       </div>
-      <ul className="md:flex">
+      <ul
+        className={`md:flex duration-1000 absolute md:static bg-yellow-200 px-6 ${
+          open ? "top-16" : "-top-60"
+        }`}
+      >
         {routes.map((route) => (
           <Link key={route.id} route={route}></Link>
         ))}
